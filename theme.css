@@ -1,0 +1,197 @@
+/* ═══════════════════════════════════════════════════════
+   Monotone Inverted - MCPanel Theme
+   Author: DippyCoder
+   Pure greyscale light theme. Red stays for errors and
+   destructive actions only.
+   ═══════════════════════════════════════════════════════ */
+
+:root {
+  color-scheme: light;
+  --app-icon: black;
+
+  --bg-base:      #f5f5f5;
+  --bg-surface:   #ffffff;
+  --bg-elevated:  #ebebeb;
+  --bg-card:      #ffffffcc;
+  --bg-hover:     #e5e5e5;
+
+  /* The base stylesheet still reads these in a few places. */
+  --purple-900:   #f5f5f5;
+  --purple-800:   #e5e5e5;
+  --purple-700:   #d4d4d4;
+  --purple-600:   #262626;
+  --purple-500:   #404040;
+  --purple-400:   #525252;
+  --purple-300:   #171717;
+  --purple-200:   #262626;
+  --purple-100:   #0a0a0a;
+
+  --accent:       #171717;
+  --accent-rgb:   23,23,23;
+  --accent-glow:  rgba(23,23,23,0.15);
+  --accent-dim:   rgba(23,23,23,0.06);
+  --console-bg:        #171717;
+  --console-input-bg:  #0a0a0a;
+
+  --green:        #171717;
+  --green-rgb:    23,23,23;
+  --green-dim:    rgba(23,23,23,0.1);
+  --orange:       #737373;
+  --orange-rgb:   115,115,115;
+  --yellow:       #737373;
+  --yellow-rgb:   115,115,115;
+
+  --text-primary:   #0a0a0a;
+  --text-secondary: #525252;
+  --text-muted:     #a3a3a3;
+  --text-accent:    #000000;
+
+  --border:       rgba(0,0,0,0.1);
+  --border-focus: rgba(0,0,0,0.45);
+
+  --shadow-sm:  0 1px 3px rgba(0,0,0,0.08);
+  --shadow:     0 4px 20px rgba(0,0,0,0.08);
+  --shadow-lg:  0 8px 40px rgba(0,0,0,0.14);
+  --shadow-purple: 0 4px 24px rgba(0,0,0,0.1);
+}
+
+body { background: var(--bg-base); }
+
+/* Scrollbar */
+::-webkit-scrollbar-track { background: #ebebeb; }
+::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.18); }
+::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.35); }
+
+/* Titlebar */
+.titlebar { background: #ffffff; border-bottom-color: var(--border); }
+.titlebar-logo { color: var(--text-primary); }
+.tb-btn { color: var(--text-secondary); }
+.tb-btn:hover { background: var(--bg-hover); color: var(--text-primary); }
+.tb-btn.close:hover { background: #ef4444; color: #fff; }
+
+/* Page heading: flat black instead of the gradient */
+.page-header h1 {
+  background: var(--text-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Sidebar */
+.sidebar { background: #ffffff; }
+.nav-item { color: var(--text-secondary); }
+.nav-item:hover { background: var(--bg-hover); color: var(--text-primary); }
+.nav-item.active {
+  background: var(--accent-dim);
+  color: var(--text-accent);
+  box-shadow: inset 2px 0 0 var(--accent);
+}
+.sidebar-server-item { color: var(--text-secondary); }
+.sidebar-server-item:hover { background: var(--bg-hover); color: var(--text-primary); }
+.sidebar-server-item.active { color: var(--text-accent); }
+.sidebar-footer { color: var(--text-muted); border-top-color: var(--border); }
+
+/* Cards */
+.card, .server-card, .profile-card { background: #ffffffcc; }
+.server-card::before { background: var(--accent); }
+.server-card:hover { border-color: rgba(0,0,0,0.25); box-shadow: var(--shadow); }
+.profile-card::after { background: var(--accent); }
+.profile-card:hover { border-color: rgba(0,0,0,0.25); box-shadow: var(--shadow); }
+.profile-tag { background: var(--accent-dim); color: var(--text-primary); border-color: var(--border); }
+
+.stat-chip, .jdk-item, .about-item { background: var(--bg-elevated); }
+
+/* Buttons */
+.btn-primary {
+  background: var(--accent);
+  color: #ffffff;
+  box-shadow: none;
+}
+.btn-primary:hover { background: #000000; box-shadow: 0 4px 14px rgba(0,0,0,0.18); }
+.btn-ghost { border-color: rgba(0,0,0,0.14); color: var(--text-secondary); background: none; }
+.btn-ghost:hover { border-color: var(--accent); color: var(--text-primary); background: var(--accent-dim); }
+.btn-sm { background: var(--bg-elevated); border-color: var(--border); color: var(--text-primary); }
+.btn-sm:hover { border-color: var(--accent); background: var(--accent-dim); }
+.btn-xs { background: var(--bg-elevated); border-color: var(--border); color: var(--text-secondary); }
+.btn-xs:hover { border-color: var(--accent); color: var(--text-primary); background: var(--accent-dim); }
+.btn-ghost-sm { border-color: var(--border); color: var(--text-muted); }
+.btn-ghost-sm:hover { border-color: var(--accent); color: var(--text-primary); }
+
+.quick-ctrl-btn { background: var(--bg-elevated); border-color: var(--border); color: var(--text-secondary); }
+.quick-ctrl-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+.srv-quick-btn:hover { background: var(--accent-dim); color: var(--accent); }
+
+/* Inputs */
+.input, .input-sm { background: var(--bg-elevated); border-color: var(--border); color: var(--text-primary); }
+.input:focus, .input-sm:focus { border-color: var(--border-focus); }
+.input::placeholder { color: var(--text-muted); }
+select option { background: #ffffff; color: #0a0a0a; }
+
+/* Toggle off-state is invisible on white without this */
+.toggle-slider { background: rgba(0,0,0,0.15); }
+
+/* Checkbox */
+.checkbox-item { background: var(--bg-elevated); border-color: var(--border); color: var(--text-secondary); }
+.checkbox-item:hover { border-color: rgba(0,0,0,0.3); color: var(--text-primary); }
+.checkbox-item input[type=checkbox] { accent-color: var(--accent); }
+
+/* Console stays dark for readability */
+.console-output { background: #171717; }
+.log-text { color: #d4d4d4; }
+.console-input-row { background: #0a0a0a; }
+.console-prompt { color: #ffffff; }
+.console-input { color: #f5f5f5; }
+.console-input::placeholder { color: #525252; }
+.btn-send { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: #f5f5f5; }
+.btn-send:hover { background: #f5f5f5; color: #0a0a0a; }
+
+.progress-bar-wrap { background: var(--bg-elevated); }
+
+/* Modal */
+.modal {
+  background: #ffffff;
+  border-color: var(--border);
+  box-shadow: 0 20px 80px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.05);
+}
+.modal-footer { background: var(--bg-base); }
+.modal-close { border-color: var(--border); color: var(--text-secondary); }
+
+.field-hint, .jdk-version, .progress-percent, .active-theme-name { color: var(--text-accent); }
+
+/* ── Semantic token overrides ───────────────────────── */
+:root {
+  --online-color:   #0a0a0a;
+  --online-glow:    rgba(0,0,0,0.25);
+  --offline-color:  var(--text-muted);
+  --starting-color: #737373;
+  --starting-rgb:   115,115,115;
+
+  --log-text:       #d4d4d4;
+  --log-error:      #f87171;
+  --log-warn:       #ffffff;
+  --log-system:     #8a8a8a;
+
+  --info-box-bg:       rgba(0,0,0,0.03);
+  --info-box-border:   rgba(0,0,0,0.12);
+  --info-box-text:     #262626;
+
+  --warning-box-bg:     rgba(0,0,0,0.05);
+  --warning-box-border: rgba(0,0,0,0.25);
+  --warning-box-text:   #0a0a0a;
+
+  --danger-zone-bg:          rgba(239,68,68,0.05);
+  --danger-zone-border:      rgba(239,68,68,0.2);
+  --danger-zone-title-color: #dc2626;
+
+  --toast-success-bg:     rgba(23,23,23,0.95);
+  --toast-success-border: rgba(0,0,0,0.2);
+  --toast-success-text:   #f5f5f5;
+  --toast-error-bg:       rgba(153,27,27,0.92);
+  --toast-error-border:   rgba(239,68,68,0.3);
+  --toast-error-text:     #fecaca;
+  --toast-info-bg:        rgba(255,255,255,0.97);
+  --toast-info-border:    rgba(0,0,0,0.15);
+  --toast-info-text:      #262626;
+
+  --bar-green-bg:  rgba(0,0,0,0.45);
+  --bar-red-bg:    rgba(239,68,68,0.45);
+}
